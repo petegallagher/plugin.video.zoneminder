@@ -56,7 +56,7 @@ def error_message(message, title='Error'):
     xbmcgui.Dialog().ok(title, message)
 
 def login ():
-    login_url = "/".join([_addon.getSetting('base_url').strip(), "api/host/login.json"])
+    login_url = '{base_url}/api/host/login.json'.format(base_url=_base_url)
     creds = {
                 'user': _addon.getSetting('username').strip(),
                 'pass': _addon.getSetting('password').strip()
