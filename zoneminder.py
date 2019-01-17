@@ -13,7 +13,7 @@ import xbmcgui
 import xbmcplugin
 import xbmcaddon
 import requests
-import simplejson as json
+import json
 
 # Global vars
 # Get the plugin url in plugin:// notation.
