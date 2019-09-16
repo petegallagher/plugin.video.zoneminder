@@ -1,6 +1,6 @@
 <settings>
  <category label="31000">
-  <setting id="base_url" type="text" label="31001" default="http://zmhost:8080/zm"/>
+  <setting id="base_url" type="text" label="31001" default="http://zmhost:8080"/>
   <setting id="zm_folder" type="text" label="31007" default="/zm"/>
   <setting id="cgi_bin_folder" type="text" label="31008" default="/cgi-bin-zm"/>
   <setting id="is_authenticated" type="bool" label="31002" default="false"/>
