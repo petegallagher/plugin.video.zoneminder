@@ -23,6 +23,8 @@ _handle = int(sys.argv[1])
 _addon = xbmcaddon.Addon()
 _language = _addon.getLocalizedString
 _base_url = _addon.getSetting('base_url').strip()
+_zm_folder = _addon.getSetting('zm_folder').strip()
+_cgi_bin_folder = _addon.getSetting('cgi_bin_folder').strip()
 _auth_token = None
 _auth_cookies = None
 
@@ -56,7 +58,7 @@ def error_message(message, title='Error'):
     xbmcgui.Dialog().ok(title, message)
 
 def login ():
-    login_url = '{base_url}/api/host/login.json'.format(base_url=_base_url)
+    login_url = '{base_url}{zm_folder}/api/host/login.json'.format(base_url=_base_url,zm_folder=_zm_folder)
     creds = {
                 'user': _addon.getSetting('username').strip(),
                 'pass': _addon.getSetting('password').strip()
@@ -78,7 +80,7 @@ def login ():
 
 def get_active_monitors ():
     # Get monitors from Zoneminder API
-    monitors_url = '{base_url}/api/monitors.json'.format(base_url=_base_url)
+    monitors_url = '{base_url}{zm_folder}/api/monitors.json'.format(base_url=_base_url,zm_folder=_zm_folder)
     r = requests.get(monitors_url, cookies=_auth_cookies)
     # Parse JSON response
     j = json.loads(r.text)
@@ -94,8 +96,9 @@ def get_active_monitors ():
         active_monitor = dict()
         active_monitor['id'] = monitor['Id']
         active_monitor['name'] = monitor['Name']
-        active_monitor['video'] = '{base_url}/cgi-bin/nph-zms?scale=auto&width={width}&height={height}&mode=jpeg&maxfps={fps}&monitor={monitor_id}&{auth}'.format( 
+        active_monitor['video'] = '{base_url}{cgi_bin_folder}/nph-zms?scale=auto&width={width}&height={height}&mode=jpeg&maxfps={fps}&monitor={monitor_id}&{auth}'.format( 
             base_url=_base_url,
+            cgi_bin_folder=_cgi_bin_folder,
             width=monitor['Width'],
             height=monitor['Height'],
             fps=_addon.getSetting('fps'),
@@ -103,8 +106,9 @@ def get_active_monitors ():
             auth=_auth_token
             )
         
-        active_monitor['thumb'] = '{base_url}/cgi-bin/nph-zms?scale=auto&width={width}&height={height}&mode=single&maxfps={fps}&monitor={monitor_id}&{auth}'.format( 
+        active_monitor['thumb'] = '{base_url}{cgi_bin_folder}/nph-zms?scale=auto&width={width}&height={height}&mode=single&maxfps={fps}&monitor={monitor_id}&{auth}'.format( 
             base_url=_addon.getSetting('base_url'),
+            cgi_bin_folder=_addon.getSetting('cgi_bin_folder'),
             width=monitor['Width'],
             height=monitor['Height'],
             fps=_addon.getSetting('fps'),
