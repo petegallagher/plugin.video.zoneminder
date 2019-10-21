@@ -59,7 +59,8 @@ def login ():
     login_url = '{base_url}/api/host/login.json'.format(base_url=_base_url)
     creds = {
                 'user': _addon.getSetting('username').strip(),
-                'pass': _addon.getSetting('password').strip()
+                'pass': _addon.getSetting('password').strip(),
+                'stateful': 1
             }
     try:
         r = requests.post(login_url, data=creds)
