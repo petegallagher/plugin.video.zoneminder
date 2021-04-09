@@ -5,8 +5,8 @@
 # License: GPL v.3 https://www.gnu.org/copyleft/gpl.html
 
 import sys
-from urllib import urlencode
-from urlparse import parse_qsl
+from urllib.parse import urlencode
+from urllib.parse import parse_qsl
 # Python3 equivalent
 # from urllib.parse import quote, parse_qsl
 import xbmcgui
@@ -210,3 +210,4 @@ if __name__ == '__main__':
     # Call the router function and pass the plugin call parameters to it.
     # We use string slicing to trim the leading '?' from the plugin call paramstring
     router(sys.argv[2][1:])
+
