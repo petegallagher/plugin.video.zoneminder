@@ -1,3 +1,6 @@
+v3.0.0 (2020-04-09)
+- Add support for Kodi 19+ (python 3)
+
 v2.0.2 (2020-02-19)
 - Add support for new Zoneminder API v2.0 (introduced in v1.34 of Zoneminder)
 
