@@ -13,6 +13,7 @@
 				<setting id="zm_path" type="string" label="32006" help="">
 					<level>0</level>
 					<default>zm</default>
+          <constraints> <allowempty>true</allowempty> </constraints>
 					<control type="edit" format="string">
 						<heading>32006</heading>
 					</control>
