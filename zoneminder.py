@@ -59,7 +59,11 @@ def error_message(message, title='Error'):
     xbmcgui.Dialog().ok(title, message)
 
 def login ():
-    login_url = '{base_url}/{zm_path}/api/host/login.json'.format(base_url=_base_url, zm_path=_zm_path)
+    if _zm_path != '':
+        login_url = '{base_url}/{zm_path}/api/host/login.json'.format(base_url=_base_url, zm_path=_zm_path)
+    else:
+        login_url = '{base_url}/api/host/login.json'.format(base_url=_base_url)
+
     creds = {
                 'user': _addon.getSetting('username').strip(),
                 'pass': _addon.getSetting('password').strip()
@@ -72,6 +76,7 @@ def login ():
     if r.status_code != 200:
         # Login failed
         error_message(title=_language(34001), message='{}: {}'.format(r.status_code, r.reason))
+        return '', ''
 
     j = json.loads(r.text)
 
@@ -88,8 +93,16 @@ def login ():
 
 def get_active_monitors ():
     # Get monitors from Zoneminder API
-    monitors_url = '{}/{}/api/monitors.json?{}'.format(_base_url, _zm_path, _auth_token_param)
+    if _zm_path != '':
+        monitors_url = '{}/{}/api/monitors.json?{}'.format(_base_url, _zm_path, _auth_token_param)
+    else:
+        monitors_url = '{}/api/monitors.json?{}'.format(_base_url, _auth_token_param)
     r = requests.get(monitors_url)
+    if r.status_code != 200:
+        # Login failed
+        error_message(title=_language(34001), message='{}: {}'.format(r.status_code, r.reason))
+        return []
+
     # Parse JSON response
     j = json.loads(r.text)
 
@@ -97,7 +110,7 @@ def get_active_monitors ():
     for monitor in j['monitors']:
         monitor = monitor['Monitor']
 
-        if monitor['Enabled'] != '1':
+        if monitor['Enabled'] != 1:
             # If monitor is disabled in Zoneminder we don't want to display it so move to next item in array.
             continue
 

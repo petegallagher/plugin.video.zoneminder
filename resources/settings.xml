@@ -13,6 +13,7 @@
 				<setting id="zm_path" type="string" label="32006" help="">
 					<level>0</level>
 					<default>zm</default>
+          <constraints> <allowempty>true</allowempty> </constraints>
 					<control type="edit" format="string">
 						<heading>32006</heading>
 					</control>
@@ -29,8 +30,8 @@
 					<default>2.0</default>
 					<constraints>
 						<options>
-							<option label="1.0">1.0</option>
-							<option label="2.0">2.0</option>
+							<option>1.0</option>
+							<option>2.0</option>
 						</options>
 					</constraints>
 					<control type="spinner" format="string"/>
@@ -70,15 +71,15 @@
 					<default>30</default>
 					<constraints>
 						<options>
-							<option label="1">1</option>
-							<option label="2">2</option>
-							<option label="5">5</option>
-							<option label="10">10</option>
-							<option label="15">15</option>
-							<option label="20">20</option>
-							<option label="25">25</option>
-							<option label="30">30</option>
-							<option label="50">50</option>
+							<option>1</option>
+							<option>2</option>
+							<option>5</option>
+							<option>10</option>
+							<option>15</option>
+							<option>20</option>
+							<option>25</option>
+							<option>30</option>
+							<option>50</option>
 						</options>
 					</constraints>
 					<control type="spinner" format="string"/>
