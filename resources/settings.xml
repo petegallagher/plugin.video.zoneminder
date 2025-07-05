@@ -29,8 +29,8 @@
 					<default>2.0</default>
 					<constraints>
 						<options>
-							<option label="1.0">1.0</option>
-							<option label="2.0">2.0</option>
+							<option label="32021">1.0</option>
+							<option label="32022">2.0</option>
 						</options>
 					</constraints>
 					<control type="spinner" format="string"/>
@@ -70,15 +70,15 @@
 					<default>30</default>
 					<constraints>
 						<options>
-							<option label="1">1</option>
-							<option label="2">2</option>
-							<option label="5">5</option>
-							<option label="10">10</option>
-							<option label="15">15</option>
-							<option label="20">20</option>
-							<option label="25">25</option>
-							<option label="30">30</option>
-							<option label="50">50</option>
+							<option label="32011">1</option>
+							<option label="32012">2</option>
+							<option label="32013">5</option>
+							<option label="32014">10</option>
+							<option label="32015">15</option>
+							<option label="32016">20</option>
+							<option label="32017">25</option>
+							<option label="32018">30</option>
+							<option label="32019">50</option>
 						</options>
 					</constraints>
 					<control type="spinner" format="string"/>
