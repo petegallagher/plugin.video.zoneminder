@@ -5,3 +5,7 @@ plugin.video.zoneminder
 - View live stream of cameras
 - Requires Zoneminder API 1.32+
 - Supports username/password authentication
+
+tested on
+- kodi 21.2
+- zoneminder 1.36

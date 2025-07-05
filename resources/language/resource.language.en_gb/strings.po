@@ -53,6 +53,50 @@ msgctxt "#32008"
 msgid "API Version"
 msgstr ""
 
+msgctxt "#32011"
+msgid "1"
+msgstr ""
+
+msgctxt "#32012"
+msgid "2"
+msgstr ""
+
+msgctxt "#32013"
+msgid "5"
+msgstr ""
+
+msgctxt "#32014"
+msgid "10"
+msgstr ""
+
+msgctxt "#32015"
+msgid "15"
+msgstr ""
+
+msgctxt "#32016"
+msgid "20"
+msgstr ""
+
+msgctxt "#32017"
+msgid "25"
+msgstr ""
+
+msgctxt "#32018"
+msgid "30"
+msgstr ""
+
+msgctxt "#32019"
+msgid "50"
+msgstr ""
+
+msgctxt "#32021"
+msgid "1.0"
+msgstr ""
+
+msgctxt "#32022"
+msgid "2.0"
+msgstr ""
+
 #
 # Interface Strings
 #
