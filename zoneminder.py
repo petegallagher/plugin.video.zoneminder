@@ -97,7 +97,7 @@ def get_active_monitors ():
     for monitor in j['monitors']:
         monitor = monitor['Monitor']
 
-        if monitor['Enabled'] != '1':
+        if str(monitor['Enabled']) != '1':
             # If monitor is disabled in Zoneminder we don't want to display it so move to next item in array.
             continue
 
